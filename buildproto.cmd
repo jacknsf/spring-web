@@ -1,0 +1,1 @@
+D:\sdk\protoc-23.0\bin\protoc.exe -I=D:\proj\eclipse-workspace\springabc\src\test\java\com\abc\springabc\entity --java_out=D:\proj\eclipse-workspace\springabc\src\test\java\com\abc\springabc\entity D:\proj\eclipse-workspace\springabc\src\test\java\com\abc\springabc\entity\entity_def.proto

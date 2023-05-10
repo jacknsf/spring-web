@@ -3,6 +3,7 @@ package com.abc.springabc;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -14,6 +15,7 @@ import com.abc.springabc.bp.UserBP;
 @Controller
 @RequestMapping("/main")
 public class MainController {
+	static Logger logger = Logger.getLogger(MainController.class);
 	
 	@RequestMapping("/cmd")
     @ResponseBody
@@ -21,23 +23,15 @@ public class MainController {
 		
 		
 		
+		logger.debug("cmdid: "+cmdid+" param: "+param);
 		
 		
 		BP bp=BPFactory.createBP(cmdid);
 		if(null==bp)
 			return "";
-		
-		String urlDecode="";
-		try {
-			urlDecode = URLDecoder.decode( param, "UTF-8" );
-		} catch (UnsupportedEncodingException e) {
-			
-			e.printStackTrace();
-		}
-		
 	
 		
-		return bp.exec(cmdid, urlDecode);
+		return bp.exec(cmdid, param);
 		
 	}
 

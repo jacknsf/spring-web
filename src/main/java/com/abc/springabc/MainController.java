@@ -1,5 +1,8 @@
 package com.abc.springabc;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -24,9 +27,17 @@ public class MainController {
 		if(null==bp)
 			return "";
 		
+		String urlDecode="";
+		try {
+			urlDecode = URLDecoder.decode( param, "UTF-8" );
+		} catch (UnsupportedEncodingException e) {
+			
+			e.printStackTrace();
+		}
+		
 	
 		
-		return bp.exec(cmdid, param);
+		return bp.exec(cmdid, urlDecode);
 		
 	}
 

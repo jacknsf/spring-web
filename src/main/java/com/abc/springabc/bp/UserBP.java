@@ -23,7 +23,40 @@ public class UserBP extends BP {
 				return new ObjectMapper().writeValueAsString(ret);
 			
 			}
-		
+			else if("1-2".equals(cmdid))
+			{
+				
+				int userid= new ObjectMapper().readValue(Param, int.class);
+				CmdResult ret=new CmdResult("1-2",0,getUserById(userid));
+				return new ObjectMapper().writeValueAsString(ret);
+				
+			}
+			else if("1-3".equals(cmdid))
+			{
+				int userid= new ObjectMapper().readValue(Param, int.class);
+				deleterUser(userid);
+				CmdResult ret=new CmdResult("1-3",0,"OK");
+				return new ObjectMapper().writeValueAsString(ret);
+				
+			}
+			else if("1-4".equals(cmdid))
+			{
+				User user= new ObjectMapper().readValue(Param, User.class);
+				addUser(user);
+				CmdResult ret=new CmdResult("1-4",0,"OK");
+				return new ObjectMapper().writeValueAsString(ret);
+						
+				
+			}
+			else if("1-5".equals(cmdid))
+			{
+				User user= new ObjectMapper().readValue(Param, User.class);
+				updateUser(user);
+				CmdResult ret=new CmdResult("1-5",0,"OK");
+				return new ObjectMapper().writeValueAsString(ret);
+						
+				
+			}
 		
 		
 			return "UserBP";
@@ -34,6 +67,91 @@ public class UserBP extends BP {
 		}
 	}
 	
+	public void addUser(User user)
+	{
+		SqlSession sqlSession = MybatisUntils.getSqlSession();
+        
+        try
+        {
+        	UserDao userDao = sqlSession.getMapper(UserDao.class);
+        	userDao.addUser(user);
+        	sqlSession.commit();
+        }
+        catch(Exception ex)
+        {
+        	
+        }
+        finally {
+        	sqlSession.close();
+        }
+	}
+	
+	public void updateUser(User user)
+	{
+		SqlSession sqlSession = MybatisUntils.getSqlSession();
+        
+        try
+        {
+        	UserDao userDao = sqlSession.getMapper(UserDao.class);
+        	userDao.updateUser(user);
+        	sqlSession.commit();
+        }
+        catch(Exception ex)
+        {
+        	
+        }
+        finally {
+        	sqlSession.close();
+        }
+		
+	}
+	
+	public void deleterUser(int id)
+	{
+		
+		
+        SqlSession sqlSession = MybatisUntils.getSqlSession();
+        
+        try
+        {
+        	UserDao userDao = sqlSession.getMapper(UserDao.class);
+        	userDao.deleterUser(id);
+        	sqlSession.commit();
+        }
+        catch(Exception ex)
+        {
+        	
+        }
+        finally {
+        	sqlSession.close();
+        }
+        
+	}
+	
+	public User getUserById(int id)
+	{
+		
+		User user=null;
+		
+        SqlSession sqlSession = MybatisUntils.getSqlSession();
+        
+        try
+        {
+        	UserDao userDao = sqlSession.getMapper(UserDao.class);
+        	user = userDao.getUserById(id);
+        }
+        catch(Exception ex)
+        {
+        	
+        }
+        finally {
+        	sqlSession.close();
+        }
+        
+        return user;
+        
+		
+	}
 	public List<User> getUserList()
 	{
 		
@@ -43,19 +161,15 @@ public class UserBP extends BP {
         
         try
         {
-      
-        UserDao userDao = sqlSession.getMapper(UserDao.class);
-        userList = userDao.getUserList();
-
-    
+        	UserDao userDao = sqlSession.getMapper(UserDao.class);
+        	userList = userDao.getUserList();
         }
         catch(Exception ex)
         {
         	
         }
         finally {
-      
-        sqlSession.close();
+        	sqlSession.close();
         }
         
         return userList;

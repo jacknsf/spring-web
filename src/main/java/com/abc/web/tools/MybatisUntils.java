@@ -1,4 +1,4 @@
-package com.abc.springabc.tools;
+package com.abc.web.tools;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -13,7 +13,7 @@ public class MybatisUntils {
 	 private static SqlSessionFactory sqlSessionFactory;
 	    static {
 	        try {
-	            String resource = "com/abc/springabc/config/mybatis-config.xml";
+	            String resource = "com/abc/web/config/mybatis-config.xml";
 	            InputStream inputStream = Resources.getResourceAsStream(resource);
 	            sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 	        } catch (IOException e) {

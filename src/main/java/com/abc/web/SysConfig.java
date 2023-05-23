@@ -1,4 +1,4 @@
-package com.abc.springabc;
+package com.abc.web;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

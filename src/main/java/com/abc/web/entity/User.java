@@ -1,4 +1,4 @@
-package com.abc.springabc.entity;
+package com.abc.web.entity;
 
 public class User {
 	

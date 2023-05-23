@@ -1,8 +1,8 @@
-package com.abc.springabc.dao;
+package com.abc.web.dao;
 
 import java.util.List;
 
-import com.abc.springabc.entity.User;
+import com.abc.web.entity.User;
 
 public interface UserDao {
 	

@@ -1,4 +1,4 @@
-package com.abc.springabc;
+package com.abc.web;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
@@ -9,9 +9,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.abc.springabc.bp.BP;
-import com.abc.springabc.bp.BPFactory;
-import com.abc.springabc.bp.UserBP;
+import com.abc.web.bp.BP;
+import com.abc.web.bp.BPFactory;
+import com.abc.web.bp.UserBP;
 
 @Controller
 @RequestMapping("/main")

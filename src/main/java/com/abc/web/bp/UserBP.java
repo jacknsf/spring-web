@@ -1,14 +1,14 @@
-package com.abc.springabc.bp;
+package com.abc.web.bp;
 
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import com.abc.springabc.dao.UserDao;
-import com.abc.springabc.entity.User;
-import com.abc.springabc.tools.MybatisUntils;
+import com.abc.web.CmdResult;
+import com.abc.web.dao.UserDao;
+import com.abc.web.entity.User;
+import com.abc.web.tools.MybatisUntils;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.abc.springabc.CmdResult;
 
 public class UserBP extends BP {
 	

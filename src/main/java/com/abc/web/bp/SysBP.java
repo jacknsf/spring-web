@@ -1,11 +1,11 @@
-package com.abc.springabc.bp;
+package com.abc.web.bp;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.abc.springabc.CmdResult;
-import com.abc.springabc.SysConfig;
-import com.abc.springabc.entity.User;
+import com.abc.web.CmdResult;
+import com.abc.web.SysConfig;
+import com.abc.web.entity.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service

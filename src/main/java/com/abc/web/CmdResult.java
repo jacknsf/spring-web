@@ -1,4 +1,4 @@
-package com.abc.springabc;
+package com.abc.web;
 
 public class CmdResult {
 	public CmdResult(String cid,int ecode,Object obj)

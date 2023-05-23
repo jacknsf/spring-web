@@ -23,7 +23,7 @@
     
     
     <mappers>
-     	<mapper resource="com/abc/springabc/dao/UserMapper.xml"/>
+     	<mapper resource="com/abc/web/dao/UserMapper.xml"/>
  	</mappers>
  
 </configuration>

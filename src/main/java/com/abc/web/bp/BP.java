@@ -1,4 +1,4 @@
-package com.abc.springabc.bp;
+package com.abc.web.bp;
 
 import org.springframework.stereotype.Service;
 
